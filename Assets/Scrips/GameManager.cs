@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         while (true)
         {
             waveNumber++;
-            Debug.Log("Wave " + waveNumber);
+            //Debug.Log("Wave " + waveNumber);
 
             for (int i = 0; i < 5 + waveNumber * 2; i++)
             {

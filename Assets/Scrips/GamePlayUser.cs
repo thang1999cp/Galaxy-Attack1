@@ -49,7 +49,7 @@ public class GamePlayUser : MonoBehaviour
         while (true)
         {
             ShotBullet();
-            yield return new WaitForSecondsRealtime(0.2f);
+            yield return new WaitForSecondsRealtime(2f);
         }
     }
 }
