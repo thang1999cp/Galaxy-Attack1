@@ -18,7 +18,7 @@ public class PlayGunController : MonoBehaviour
     {
         if (shotControllers.Count == 0) return;
         int index = CurrentPowerIndex;
-        Debug.Log($"Starting shot with index: {index}, ShotController: {shotControllers[index].name}");
+        //Debug.Log($"Starting shot with index: {index}, ShotController: {shotControllers[index].name}");
         shotControllers[CurrentPowerIndex].StartShooting();
     }
 

@@ -26,6 +26,9 @@ public class RandomShooter : MonoBehaviour, IShooter
 
     private bool isShooting = false;
 
+    [Header("Plane Settings")]
+    [SerializeField] private int planeId;
+
     public void Shoot()
     {
         if (!isShooting && bulletPrefab != null)
@@ -106,6 +109,13 @@ public class RandomShooter : MonoBehaviour, IShooter
     private void FireBullet(float shootAngle, float speed)
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
+
+        BulletManager bulletManager = bullet.GetComponent<BulletManager>();
+        if (bulletManager != null)
+        {
+            bulletManager.planeId = planeId;
+        }
+
         Vector2 direction = Quaternion.Euler(0, 0, shootAngle) * Vector2.up;
 
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();

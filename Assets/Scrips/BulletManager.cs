@@ -1,14 +1,22 @@
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
+    private int _planeId;
+    public int planeId
+    {
+        get => _planeId;
+        set
+        {
+            _planeId = value;
+            SetPowerFromPlaneManager();
+        }
+    }
 
-
-    public float power;
-
+    [SerializeField]private int power;
     public bool needSetPower = true;
 
     private bool isTriggerEnemy;
@@ -29,18 +37,16 @@ public class BulletManager : MonoBehaviour
         {
             if (!isTriggerEnemy)
             {
-                isTriggerEnemy = true;
-                TakeDamageEnemy(collision.gameObject);
+                EnemyController enemy = collision.gameObject.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(power);
+                }
+                DespawnBullet();
             }
             
         }
     }
-
-	public virtual void TakeDamageEnemy(GameObject objEnemy)
-	{
-		DespawnBullet();
-	}
-
 
 	public virtual void DespawnBullet()
 	{
@@ -48,4 +54,16 @@ public class BulletManager : MonoBehaviour
         Destroy(gameObject);
 	}
 
+    private void SetPowerFromPlaneManager()
+    {
+        Plane plane = PlaneManager.Instance.GetPlaneById(planeId);
+        if (plane != null)
+        {
+            power = plane.power;
+        }
+        else
+        {
+            Debug.LogWarning($"Không tìm thấy máy bay với ID: {planeId}");
+        }
+    }
 }

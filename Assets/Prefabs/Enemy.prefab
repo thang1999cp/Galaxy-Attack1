@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4549941440754560990}
   - component: {fileID: 8715447656407860984}
-  - component: {fileID: 6854590256133090527}
   - component: {fileID: 9103690867574372248}
+  - component: {fileID: 891806640418966007}
+  - component: {fileID: 4711004035629195397}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -86,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6854590256133090527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7269999932597614175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb7ac61648a8074ebec49468f4e0c20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementType: 0
 --- !u!60 &9103690867574372248
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -154,3 +142,35 @@ PolygonCollider2D:
       - {x: 0.24, y: 0.08}
       - {x: 0.14, y: 0.13}
   m_UseDelaunayMesh: 0
+--- !u!114 &891806640418966007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269999932597614175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79077465cf1a5b0449f8623706569ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 10
+  coinValue: 5
+--- !u!114 &4711004035629195397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7269999932597614175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb7ac61648a8074ebec49468f4e0c20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pattern: {fileID: 0}
+  formationMovement: {fileID: 0}
+  patternDuration: 3
+  joinFormationAfterPattern: 1
+  formationAnchor: {fileID: 4549941440754560990}
+  formationOffset: {x: 0, y: 3.5}

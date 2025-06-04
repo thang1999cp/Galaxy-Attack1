@@ -27,7 +27,8 @@ public class Loading : MonoBehaviour
             progressBar.value = progress;
             yield return null;
         }
-
         progressBar.value = 1f;
+        UIManager.instance.homePanel.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
