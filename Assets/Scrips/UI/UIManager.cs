@@ -16,6 +16,10 @@ public class UIManager : MonoBehaviour
     public GameObject shopPanel;
     public GameObject upgradePanel;
     public GameObject playGameUI;
+    public GameObject winUI;
+    public GameObject loseUI;
+
+    public GameObject topBar;
 
     private List<GameObject> allPanels;
     private void Awake()
@@ -24,7 +28,7 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
         }
-        allPanels = new List<GameObject> { homePanel, shopPanel, upgradePanel };
+        allPanels = new List<GameObject> { homePanel, shopPanel, upgradePanel, playGameUI, winUI, loseUI };
     }
 
     private void Start()
@@ -36,9 +40,27 @@ public class UIManager : MonoBehaviour
     public void PlayGame()
     {
         ShowOnlyPanel(playGameUI);
-        LevelManager.Instance.Loadlevel();
+        LevelManager.Instance.LoadSavedLevel();
+        topBar.SetActive(false);
     }
 
+    public void Next()
+    {
+        LevelManager.Instance.NextLevel();
+    }
+
+    public void Home()
+    {
+        ShowOnlyPanel(homePanel);
+        LevelManager.Instance.DestroyCurrentLevel();
+        LevelManager.Instance.DestroySpawnedShips();
+    }
+
+    public void Replay()
+    {
+        loseUI.SetActive(false);
+        LevelManager.Instance.ReplayLevel();
+    }
     public void UpdateCoinUI()
     {
         coinText.text = Coin.ToString();

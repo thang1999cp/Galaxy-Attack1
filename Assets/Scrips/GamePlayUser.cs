@@ -11,4 +11,15 @@ public class GamePlayUser : MonoBehaviour
         mouPos.z = 0;
         transform.position = mouPos;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            UIManager.instance.ShowOnlyPanel(UIManager.instance.loseUI);
+        }
+    }
+
+
 }

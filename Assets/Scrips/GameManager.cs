@@ -9,9 +9,15 @@ public class GameManager : MonoBehaviour
     {
         public GameObject enemyPrefab;
         public PatternMoveBase pattern;
-        //public FormationMoveBase formationMovement;
         public Vector2[] formationOffsets;
 
+        public int enemiesPerRow = 2;
+
+        public float patternHorizontalSpacing = 2f;
+
+        public float patternVerticalSpacing = 2f;
+
+        public bool centerFormation = true;
     }
 
     [System.Serializable]
@@ -28,7 +34,6 @@ public class GameManager : MonoBehaviour
     private static int aliveEnemies = 0;
     private int currentWave = 0;
     private bool spawning = false;
-    private bool waveIsOn = false;
 
     private void Start()
     {
@@ -45,51 +50,73 @@ public class GameManager : MonoBehaviour
         if (!spawning && aliveEnemies == 0 && currentWave < waves.Length)
         {
             StartCoroutine(SpawnWave());
-            waveIsOn = false;
         }
+        if (!spawning && aliveEnemies == 0 && currentWave >= waves.Length)
+        {
+            ShowWinUI();
+        }
+    }
+
+    private Vector2 CalculatePatternOffset(int enemyIndex, EnemyData enemyData)
+    {
+        int row = enemyIndex / enemyData.enemiesPerRow;
+        int col = enemyIndex % enemyData.enemiesPerRow;
+
+        float x = col * enemyData.patternHorizontalSpacing;
+        float y = -row * enemyData.patternVerticalSpacing;
+
+        if (enemyData.centerFormation)
+        {
+            int totalEnemies = enemyData.formationOffsets.Length;
+            int totalRows = Mathf.CeilToInt((float)totalEnemies / enemyData.enemiesPerRow);
+            int enemiesInCurrentRow = (row == totalRows - 1)
+                ? (totalEnemies - row * enemyData.enemiesPerRow)
+                : enemyData.enemiesPerRow;
+
+            float totalWidth = (enemiesInCurrentRow - 1) * enemyData.patternHorizontalSpacing;
+            float totalHeight = (totalRows - 1) * enemyData.patternVerticalSpacing;
+
+            x -= totalWidth * 0.5f;
+            y += totalHeight * 0.5f;
+        }
+
+        return new Vector2(x, y);
     }
 
     IEnumerator SpawnWave()
     {
         spawning = true;
-
         WaveData wave = waves[currentWave];
-
 
         UIManager.instance.ShowWaveUI(currentWave + 1, waves.Length);
         yield return new WaitForSeconds(2);
         UIManager.instance.HideWaveUI();
 
-
         foreach (EnemyData enemyData in wave.enemies)
         {
-            if (enemyData.enemyPrefab == null)
+            if (enemyData.enemyPrefab == null || enemyData.pattern == null)
             {
-                Debug.LogError("Enemy prefab is missing!");
+                Debug.LogError("Enemy prefab hoặc pattern bị thiếu!");
                 continue;
             }
 
-            if (enemyData.pattern == null)
-            {
-                Debug.LogError("Enemy pattern is missing!");
-                continue;
-            }
-
-            foreach (Vector2 offset in enemyData.formationOffsets)
+            for (int i = 0; i < enemyData.formationOffsets.Length; i++)
             {
                 GameObject enemy = Instantiate(enemyData.enemyPrefab, spawnPoint.position, Quaternion.identity);
-
                 EnemyManager movement = enemy.GetComponent<EnemyManager>();
 
                 if (movement == null)
                 {
-                    Debug.LogError("Enemy prefab is missing EnemyMovementController!");
+                    Debug.LogError("Enemy prefab thiếu component EnemyManager!");
                     continue;
                 }
 
+                Vector2 patternOffset = (enemyData.pattern is DropByRowsPattern)   ? Vector2.zero   : CalculatePatternOffset(i, enemyData);
+
                 movement.pattern = enemyData.pattern;
                 movement.formationAnchor = formationAnchor;
-                movement.formationOffset = offset;
+                movement.formationOffset = enemyData.formationOffsets[i];
+                movement.patternOffset = patternOffset;
 
                 aliveEnemies++;
                 yield return new WaitForSeconds(0.2f);
@@ -101,12 +128,10 @@ public class GameManager : MonoBehaviour
         spawning = false;
     }
 
-    //IEnumerator ShowWaveNotification()
-    //{
-    //    UIManager.instance.ShowWaveUI(currentWave + 1, waves.Length);
-    //    yield return new WaitForSeconds(2);
-    //    UIManager.instance.HideWaveUI();
-    //    StartCoroutine(nameof(SpawnWave));
-    //    waveIsOn = true;
-    //}
+    private void ShowWinUI()
+    {
+        Debug.Log("Bạn đã chiến thắng!");
+        UIManager.instance.winUI.SetActive(true);
+    }
+
 }

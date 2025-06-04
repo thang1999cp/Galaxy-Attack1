@@ -11,6 +11,9 @@ public class EnemyManager : MonoBehaviour
     public Transform formationAnchor;
     public Vector2 formationOffset;
 
+    [HideInInspector]
+    public Vector2 patternOffset;
+
     private Vector2 startPos;
     private float timer;
     private bool inFormation = false;
@@ -26,8 +29,11 @@ public class EnemyManager : MonoBehaviour
 
         if (!inFormation && timer < patternDuration)
         {
-            Vector2 pos = pattern.GetNextPosition(startPos, timer);
-            transform.position = pos;
+            Vector2 basePatternPos = pattern.GetNextPosition(startPos, timer);
+
+            Vector2 finalPatternPos = (pattern is DropByRowsPattern)  ? basePatternPos    : basePatternPos + patternOffset;
+
+            transform.position = finalPatternPos;
         }
         else if (joinFormationAfterPattern && formationAnchor != null)
         {

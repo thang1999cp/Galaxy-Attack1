@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1124855624520314693
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6623125536409267986}
+  - component: {fileID: 5322801987514016333}
+  m_Layer: 0
+  m_Name: LV1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6623125536409267986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124855624520314693}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3458602777255851294}
+  - {fileID: 6474239951187372943}
+  - {fileID: 6167976115571614390}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5322801987514016333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124855624520314693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a52b615c93ded564a9199c6118f3e98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  formationAnchor: {fileID: 3458602777255851294}
+  spawnPoint: {fileID: 6167976115571614390}
+  waves:
+  - enemies:
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 87a099f64bfd06d4e9b5a91e677ceb73, type: 3}
+      pattern: {fileID: 11400000, guid: 6838432f51c41a74bb317195d255f20c, type: 2}
+      formationOffsets:
+      - {x: -2, y: 1}
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 2, y: 1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: ba24f413337f579438d5b291babe0adf, type: 3}
+      pattern: {fileID: 11400000, guid: 6838432f51c41a74bb317195d255f20c, type: 2}
+      formationOffsets:
+      - {x: -2, y: 0}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 2, y: 0}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 2
+      patternVerticalSpacing: 2
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 0b269008bb9db9a49a6e49e6f641094d, type: 3}
+      pattern: {fileID: 11400000, guid: 6838432f51c41a74bb317195d255f20c, type: 2}
+      formationOffsets:
+      - {x: -2, y: -1}
+      - {x: -1, y: -1}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+      - {x: 2, y: -1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 2
+      patternVerticalSpacing: 2
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 0b269008bb9db9a49a6e49e6f641094d, type: 3}
+      pattern: {fileID: 11400000, guid: 6838432f51c41a74bb317195d255f20c, type: 2}
+      formationOffsets:
+      - {x: -2, y: -2}
+      - {x: -1, y: -2}
+      - {x: 0, y: -2}
+      - {x: 1, y: -2}
+      - {x: 2, y: -2}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 2
+      patternVerticalSpacing: 2
+      centerFormation: 1
+  - enemies:
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 87a099f64bfd06d4e9b5a91e677ceb73, type: 3}
+      pattern: {fileID: 11400000, guid: e6694f1c557108a47b65bb8057fe3982, type: 2}
+      formationOffsets:
+      - {x: -2, y: 1}
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 2, y: 1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: ba24f413337f579438d5b291babe0adf, type: 3}
+      pattern: {fileID: 11400000, guid: e6694f1c557108a47b65bb8057fe3982, type: 2}
+      formationOffsets:
+      - {x: -2, y: 0}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 2, y: 0}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 0b269008bb9db9a49a6e49e6f641094d, type: 3}
+      pattern: {fileID: 11400000, guid: e6694f1c557108a47b65bb8057fe3982, type: 2}
+      formationOffsets:
+      - {x: -2, y: -1}
+      - {x: -1, y: -1}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+      - {x: 2, y: -1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+  - enemies:
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 87a099f64bfd06d4e9b5a91e677ceb73, type: 3}
+      pattern: {fileID: 11400000, guid: 3e819343959bbcb4ab5382698bc4e5a2, type: 2}
+      formationOffsets:
+      - {x: -2, y: 1}
+      - {x: -1, y: 1}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 2, y: 1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: ba24f413337f579438d5b291babe0adf, type: 3}
+      pattern: {fileID: 11400000, guid: 3e819343959bbcb4ab5382698bc4e5a2, type: 2}
+      formationOffsets:
+      - {x: -2, y: 0}
+      - {x: -1, y: 0}
+      - {x: 0, y: 0}
+      - {x: 1, y: 0}
+      - {x: 2, y: 0}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+    - enemyPrefab: {fileID: 7269999932597614175, guid: 0b269008bb9db9a49a6e49e6f641094d, type: 3}
+      pattern: {fileID: 11400000, guid: 3e819343959bbcb4ab5382698bc4e5a2, type: 2}
+      formationOffsets:
+      - {x: -2, y: -1}
+      - {x: -1, y: -1}
+      - {x: 0, y: -1}
+      - {x: 1, y: -1}
+      - {x: 2, y: -1}
+      enemiesPerRow: 5
+      patternHorizontalSpacing: 1
+      patternVerticalSpacing: 1
+      centerFormation: 1
+  delayBetweenWaves: 2
+--- !u!1 &4641491653003728305
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3458602777255851294}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3458602777255851294
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4641491653003728305}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6623125536409267986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5387862969266068455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6474239951187372943}
+  m_Layer: 0
+  m_Name: Archor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6474239951187372943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387862969266068455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.01, y: 1.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6623125536409267986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7444441840073723268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6167976115571614390}
+  m_Layer: 0
+  m_Name: Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6167976115571614390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7444441840073723268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6623125536409267986}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

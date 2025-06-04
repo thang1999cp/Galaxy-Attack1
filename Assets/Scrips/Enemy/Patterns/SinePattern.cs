@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class SinePattern : PatternMoveBase
 
     public override Vector2 GetNextPosition(Vector2 startPos, float time)
     {
-        float maxFall = 9f;
+        float maxFall = 7f;
         float yOffset = Mathf.Min(speed * time, maxFall);
         return new Vector2(
             startPos.x + Mathf.Sin(time * frequency) * amplitude,
